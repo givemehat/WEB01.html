@@ -1,40 +1,74 @@
-// Smooth scroll for navigation links
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Portal | Rajnish Singh</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// Form validation and submission
-const form = document.getElementById('contact-form');
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+    <!-- Background Animated Shapes -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-    if (!name || !email || !message) {
-        alert('Please fill in all fields.');
-        return;
-    }
+    <nav>
+        <div class="logo">PORTAL<span class="highlight">.</span></div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    // Basic email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email.');
-        return;
-    }
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Let's Build Something <br><span class="gradient-text">Extraordinary.</span></h1>
+            <p class="hero-subtitle">Connecting ideas, engineering, and innovation. Reach out below to start a conversation.</p>
+            <a href="#contact" class="btn primary-btn">Get In Touch</a>
+        </div>
+    </section>
 
-    // Simulate form submission (in a real site, send to server)
-    console.log('Form submitted:', { name, email, message });
-    alert('Thank you! Your message has been sent.');
-    form.reset();
-});
+    <section id="contact" class="contact-section">
+        <div class="glass-card">
+            <h2>Send a Message</h2>
+            <p class="sub-text">I'll get back to you as soon as possible.</p>
+            
+            <form id="contact-form">
+                <div class="input-group">
+                    <input type="text" id="name" required placeholder=" ">
+                    <label for="name">Your Name</label>
+                </div>
+                
+                <div class="input-group">
+                    <input type="email" id="email" required placeholder=" ">
+                    <label for="email">Email Address</label>
+                </div>
+                
+                <div class="input-group">
+                    <textarea id="message" required placeholder=" " rows="4"></textarea>
+                    <label for="message">Your Message</label>
+                </div>
+                
+                <button type="submit" class="btn submit-btn">
+                    <span>Send Message</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </section>
 
+    <footer>
+        <p>&copy; 2026 Rajnish Singh. All Rights Reserved.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
